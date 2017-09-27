@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package blobkeeper;
+
+service BlobKeeper {
+    rpc GetBlob(stream PutRequest) returns (PutResponse) {}
+}
+
+message PutRequest {
+    string name = 1;
+    bytes data = 2;
+}
+
+message PutResponse {
+    int32 code = 1;
+    string message = 2;
+}
